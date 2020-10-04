@@ -3,7 +3,6 @@ from pandas import Series
 from pandas import concat
 from pandas import datetime
 from pandas import read_csv
-# prepare data for lstm
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import MinMaxScaler
 from tensorflow.keras.models import Sequential

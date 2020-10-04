@@ -9,6 +9,7 @@ app = Flask(__name__)
 @app.route('/forecast/<steps>')
 def predict_weather(steps: int):
     # load dataset
+    # workaround since we were unable to access location data.
     dataset_path = ModelUtils.save_clean_csv_dataset(
         'assets/raw.csv')
     series = read_csv(dataset_path, header=0, index_col=0)
@@ -16,7 +17,7 @@ def predict_weather(steps: int):
     n_lag = 1
     n_seq = int(steps)
     n_test = 10
-    n_epochs = 1
+    n_epochs = 50
     n_batch = 1
     n_neurons = 1
     # prepare data
