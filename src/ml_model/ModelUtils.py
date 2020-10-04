@@ -80,9 +80,9 @@ class ModelUtils():
         return reframed
 
     @staticmethod
-    def train_model(reframe_dataset):
+    def train_model(reframed_dataset):
         # split into train and test sets
-        values = reframe_dataset.values
+        values = reframed_dataset.values
         n_train_hours = 365 * 24
         train = values[:n_train_hours, :]
         test = values[n_train_hours:, :]
