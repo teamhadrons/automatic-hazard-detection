@@ -10,11 +10,7 @@ from tensorflow.keras.layers import LSTM
 import os
 
 
-class ModelClient():
-    def __init__():
-        pass
-    # load data
-
+class ModelUtils():
     def parse_date(x):
         return datetime.strptime(x, '%Y %m %d %H')
 
@@ -22,7 +18,7 @@ class ModelClient():
     def save_clean_csv_dataset(raw_csv_dataset_path: str = None):
         dataset = read_csv(raw_csv_dataset_path,
                            parse_dates=[['year', 'month', 'day', 'hour']],
-                           index_col=0, date_parser=ModelClient.parse_date)
+                           index_col=0, date_parser=ModelUtils.parse_date)
 
         dataset.drop('No', axis=1, inplace=True)
         # manually specify column names
@@ -77,7 +73,7 @@ class ModelClient():
         scaler = MinMaxScaler(feature_range=(0, 1))
         scaled = scaler.fit_transform(values)
         # frame as supervised learning
-        reframed = ModelClient.series_to_supervised(scaled, 1, 1)
+        reframed = ModelUtils.series_to_supervised(scaled, 1, 1)
         # drop columns we don't want to predict
         reframed.drop(
             reframed.columns[[9, 10, 11, 12, 13, 14, 15]], axis=1, inplace=True)
