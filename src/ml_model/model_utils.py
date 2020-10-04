@@ -107,3 +107,20 @@ class ModelUtils():
     @staticmethod
     def predict_on_model(model, input):
         return model.predict(input)
+
+    # make a persistence forecast
+    def persistence(last_ob, n_seq):
+        return [last_ob for i in range(n_seq)]
+
+        # evaluate the persistence model
+    def make_forecasts(train, test, n_lag, n_seq):
+        forecasts = list()
+        for i in range(len(test)):
+            X, y = test[i, 0:n_lag], test[i, n_lag:]
+            # make forecast
+            forecast = ModelUtils.persistence(X[-1], n_seq)
+            # store the forecast
+            forecasts.append(forecast)
+        return forecasts
+
+# https://machinelearningmastery.com/multi-step-time-series-forecasting-long-short-term-memory-networks-python/
