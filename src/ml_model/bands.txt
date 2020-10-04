@@ -1,0 +1,1 @@
+"Albedo_inst","AvgSurfT_inst","CanopInt_inst","ECanop_tavg","ESoil_tavg","Evap_tavg","LWdown_f_tavg","Lwnet_tavg","PotEvap_tavg","Psurf_f_inst","Qair_f_inst","Qg_tavg","Qh_tavg","Qle_tavg","Qs_acc","Qsb_acc","Qsm_acc","Rainf_f_tavg","Rainf_tavg","RootMoist_inst"
